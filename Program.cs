@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Microsoft.Extensions.Configuration;
+
+ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+configurationBuilder.AddJsonFile("appsettings.json");
+IConfigurationRoot Configuration = configurationBuilder.Build();
+Console.WriteLine(Configuration["GraphAPIBaseUrl"]);
