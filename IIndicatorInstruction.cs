@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TeamsStatusLight
+﻿namespace TeamsStatusLight
 {
-    internal interface IIndicatorInstruction
+    public interface IIndicatorInstruction
     {
         int r {  get; set; }
         int g { get; set; }
