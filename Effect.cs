@@ -3,6 +3,7 @@
     public enum Effect { 
         SOLID,
         BLINK,
-        PULSE
+        PULSE,
+        CYCLE
     }
 }
