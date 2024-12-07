@@ -1,4 +1,7 @@
-﻿namespace TeamsStatusLight
+﻿using Microsoft.Extensions.Configuration;
+using System.Runtime.InteropServices;
+
+namespace TeamsStatusLight
 {
     public interface IIndicatorInstruction
     {
@@ -9,5 +12,7 @@
         int effectRate { get; set; }
         Transition transition { get; set; }
         int transitionDuration { get; set; }
+        [DllImport("TeamsStatusLight.dll")]
+        static extern Dictionary<string, IIndicatorInstruction> DeserializeIndicatorInstructionsFromConfig(IConfigurationSection config);
     }
 }

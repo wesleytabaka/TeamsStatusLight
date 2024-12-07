@@ -1,4 +1,6 @@
-﻿namespace TeamsStatusLight
+﻿using Microsoft.Extensions.Configuration;
+
+namespace TeamsStatusLight
 {
     internal class IndicatorInstruction : IIndicatorInstruction
     {
@@ -48,6 +50,15 @@
             this._effectRate = 0;
             this._transition = Transition.NOW;
             this._transitionDuration = 0;
+        }
+        public static Dictionary<string, IndicatorInstruction> DeserializeIndicatorInstructionsFromConfig(IConfigurationSection config) {
+            Dictionary<string, IndicatorInstruction> output = new Dictionary<string, IndicatorInstruction>();
+
+            foreach (var item in config.GetChildren())
+            {
+                output.Add(item.Key, new IndicatorInstruction(Int32.Parse(item.GetSection("red").Value), Int32.Parse(item.GetSection("green").Value), Int32.Parse(item.GetSection("blue").Value), (Effect) Enum.Parse(typeof(Effect), item.GetSection("effect").Value), Int32.Parse(item.GetSection("effectRate").Value), (Transition) Enum.Parse(typeof(Transition), item.GetSection("transition").Value), Int32.Parse(item.GetSection("transitionDuration").Value)));
+            }
+            return output;
         }
     }
 }
