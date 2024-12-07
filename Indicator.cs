@@ -22,7 +22,7 @@ namespace TeamsStatusLight
 
         public void SetIndicator(IIndicatorInstruction instruction)
         {
-            Write(String.Join(",", instruction.transition, instruction.transitionDuration, instruction.effect, instruction.effectRate, instruction.r, instruction.g, instruction.b, "-"));
+            Write(String.Join(",", Convert.ChangeType(instruction.transition, instruction.transition.GetTypeCode()), instruction.transitionDuration, Convert.ChangeType(instruction.effect, instruction.effect.GetTypeCode()), instruction.effectRate, instruction.r, instruction.g, instruction.b, "-"));
         }
 
         void Listen()
