@@ -7,7 +7,8 @@ IConfigurationRoot Configuration = configurationBuilder.Build();
 string _portName = Configuration["COMPort"] ?? "COM1";
 
 TeamsStatus teamsStatus = new TeamsStatus();
-Presence presence;
+Presence previousPresence = new Presence();
+Presence presence = new Presence();
 
 Indicator _indicator = new Indicator(_portName);
 IndicatorInstruction _initialInstruction = new IndicatorInstruction(0, 0, 0); // Off
@@ -32,9 +33,12 @@ void CheckPresenceAndSetIndicator(Object stateinfo) {
     Console.WriteLine("Availability: " + presence.availability);
 
     //_indicator.SetIndicator(colors.ToArray()[_counter % colors.Count].Value); // Debug: Cycle through colors
-    IndicatorInstruction color;
-    indicatorInstructionMapping.TryGetValue(presence.availability, out color);
-    _indicator.SetIndicator(color);
+    if (!presence.Equals(previousPresence)) { // Presence has changed.
+        IndicatorInstruction color;
+        indicatorInstructionMapping.TryGetValue(presence.availability, out color);
+        _indicator.SetIndicator(color);
+        previousPresence.setPresence(presence);
+    }
 
     _counter = (_counter + 1) % indicatorInstructionMapping.Count;
 
