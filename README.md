@@ -4,6 +4,12 @@ Control an RGB LED by sending serial messages to an ATmega microcontroller based
 
 See https://github.com/wesleytabaka/RGBStatusLight for the code for the microcontroller.
 
+# Video Demo
+
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=EmCcPtRvaOY" target="_blank">
+    <img src="https://img.youtube.com/vi/EmCcPtRvaOY/0.jpg" alt="IMAGE ALT TEXT HERE"><br>View on YouTube
+</a>
+
 # Public API
 
 ## (Enum) Effect
