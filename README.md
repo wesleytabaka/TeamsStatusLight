@@ -6,8 +6,8 @@ See https://github.com/wesleytabaka/RGBStatusLight for the code for the microcon
 
 # Video Demo
 
-<a href="https://www.youtube.com/watch?feature=player_embedded&v=EmCcPtRvaOY" target="_blank">
-    <img src="https://img.youtube.com/vi/EmCcPtRvaOY/0.jpg" alt="IMAGE ALT TEXT HERE"><br>View on YouTube
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=qYAO10NIxuU" target="_blank">
+    <img src="https://img.youtube.com/vi/qYAO10NIxuU/0.jpg" alt="IMAGE ALT TEXT HERE"><br>View on YouTube
 </a>
 
 # Public API
