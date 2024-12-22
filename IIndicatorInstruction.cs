@@ -8,6 +8,9 @@ namespace TeamsStatusLight
         int r {  get; set; }
         int g { get; set; }
         int b { get; set; }
+        int r2 { get; set; }
+        int g2 { get; set; }
+        int b2 { get; set; }
         Effect effect { get; set; }
         int effectRate { get; set; }
         Transition transition { get; set; }

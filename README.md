@@ -13,10 +13,10 @@ See https://github.com/wesleytabaka/RGBStatusLight for the code for the microcon
 # Public API
 
 ## (Enum) Effect
-- SOLID: LED is steady on.
-- BLINK: LED is steady on then steady off.
-- FLASH: LED fades up to the defined color then fades to off.
-- PULSE: LED is fully on then fades to off.
+- SOLID: LED is steady on the primary color.
+- BLINK: LED is steady on the primary color then steady on the secondary color.
+- FLASH: LED fades between the primary and secondary color.
+- PULSE: LED is fully on primary color then fades to secondary color.
 - CYCLE: LED cycles through all the colors.
 
 ## (Enum) [Transition](./Transition.cs)
@@ -32,6 +32,8 @@ Handles writing to and reading from SerialPort.
 	Instructs the LED driver to change the RGB LED to the new color/effect/transition, ***instruction***.
 
 ## (Class) [IndicatorInstruction](./IndicatorInstruction.cs) : [IIndicatorInstruction](./IIndicatorInstruction.cs)
+- ### (Constructor, overload) IndicatorInstruction(int r, int g, int b, int? r2, int? g2, int? b2, Effect effect, int effectRate, Transition transition, int transitionDuration)
+	Creates a new IndicatorInstruction instance with the primary color, secondary color, effect, and transition settings above.
 - ### (Constructor, overload) IndicatorInstruction(int r, int g, int b, Effect effect, int effectRate, Transition transition, int transitionDuration)
 	Creates a new IndicatorInstruction instance with the color, effect, and transition settings above.
 - ### (Constructor, overload) IndicatorInstruction(int r, int g, int b)
@@ -71,7 +73,9 @@ Set this to the COM port to which the microcontroller is attached.
 How often to check your Microsoft Teams status in milliseconds.
 
 ## IndicatorInstructionMapping
-Customize the color, transition, and effect for each Teams status.  This section of [appsettings.json](./appsettings.json) is deserialized into instances of [IndicatorInstruction](./IndicatorInstruction.cs). See [IndicatorInstruction.cs](./IndicatorInstruction.cs)
+Customize the color, secondary color, transition, and effect for each Teams status.  This section of [appsettings.json](./appsettings.json) is deserialized into instances of [IndicatorInstruction](./IndicatorInstruction.cs). See [IndicatorInstruction.cs](./IndicatorInstruction.cs)
+
+If a secondary color is not defined, it will be defaulted to off/0.
 
 The following IndicatorInstructions are defined for Teams statuses:
 - Unknown
