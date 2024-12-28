@@ -7,10 +7,10 @@ namespace TeamsStatusLight
         SerialPort _serialPort;
         bool _continue;
 
-        public Indicator(string portName) { 
+        public Indicator(string portName, int baudRate) { 
             _serialPort = new SerialPort();
             _serialPort.PortName = portName;
-            _serialPort.BaudRate = 9600;
+            _serialPort.BaudRate = baudRate;
             _serialPort.DtrEnable = true;
             _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             StartSerial();

@@ -4,13 +4,14 @@ using TeamsStatusLight;
 ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
 configurationBuilder.AddJsonFile("appsettings.json");
 IConfigurationRoot Configuration = configurationBuilder.Build();
-string _portName = Configuration["COMPort"] ?? "COM1";
+string _portName = Configuration.GetSection("COMPort").Exists() ? Configuration.GetSection("COMPort").Value : "COM1";
+int _baudRate = Configuration.GetSection("BaudRate").Exists() ? Int32.Parse(Configuration.GetSection("BaudRate").Value) : 9600;
 
 TeamsStatus teamsStatus = new TeamsStatus();
 Presence previousPresence = new Presence();
 Presence presence = new Presence();
 
-Indicator _indicator = new Indicator(_portName);
+Indicator _indicator = new Indicator(_portName, _baudRate);
 bool previousIndicatorState = false;
 bool indicatorState = _indicator.getIndicatorState();
 
