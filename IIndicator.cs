@@ -10,6 +10,8 @@ namespace TeamsStatusLight
         void DataReceivedCallback(string response);
         void StopAllSerial();
         void StartSerial();
+        void Reconnect();
+        bool getIndicatorState();
 
     }
 }

@@ -11,8 +11,8 @@ Presence previousPresence = new Presence();
 Presence presence = new Presence();
 
 Indicator _indicator = new Indicator(_portName);
-IndicatorInstruction _initialInstruction = new IndicatorInstruction(0, 0, 0); // Off
-_indicator.SetIndicator(_initialInstruction);
+bool previousIndicatorState = false;
+bool indicatorState = _indicator.getIndicatorState();
 
 Dictionary<string, IndicatorInstruction> indicatorInstructionMapping = IndicatorInstruction.DeserializeIndicatorInstructionsFromConfig(Configuration.GetSection("IndicatorInstructionMapping"));
 
@@ -29,11 +29,17 @@ void CheckPresenceAndSetIndicator(Object stateinfo) {
     Console.WriteLine("Invoked CheckPresenceAndSetIndicator");
     AutoResetEvent autoEvent = (AutoResetEvent) stateinfo;
 
+    previousIndicatorState = (indicatorState ? true : false);
+    indicatorState = _indicator.getIndicatorState();
+
     presence = (Presence)teamsStatus.getPresence();
     Console.WriteLine("Availability: " + presence.availability);
 
     //_indicator.SetIndicator(colors.ToArray()[_counter % colors.Count].Value); // Debug: Cycle through colors
-    if (!presence.Equals(previousPresence)) { // Presence has changed.
+    if (!indicatorState) {
+        _indicator.Reconnect();
+    }
+    if (!presence.Equals(previousPresence) || (previousIndicatorState == false && indicatorState == true)) { // Presence has changed.
         IndicatorInstruction color;
         indicatorInstructionMapping.TryGetValue(presence.availability, out color);
         _indicator.SetIndicator(color);

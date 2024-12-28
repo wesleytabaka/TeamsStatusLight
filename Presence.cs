@@ -9,6 +9,13 @@
             activity = "Offline";
             availability = "Offline";
         }
+
+        public Presence(string activity, string availability)
+        {
+            this.activity = activity;
+            this.availability = availability;
+        }
+
         ~Presence () { }
 
         public void setPresence(string activity, string availability)

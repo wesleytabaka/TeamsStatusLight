@@ -37,7 +37,8 @@ namespace TeamsStatusLight
 
         public void SetIndicator(IIndicatorInstruction instruction)
         {
-            Write(String.Join(",", Convert.ChangeType(instruction.transition, instruction.transition.GetTypeCode()), instruction.transitionDuration, Convert.ChangeType(instruction.effect, instruction.effect.GetTypeCode()), instruction.effectRate, instruction.r, instruction.g, instruction.b, instruction.r2, instruction.g2, instruction.b2, "-"));
+            string tx = String.Join("", String.Join(",", Convert.ChangeType(instruction.transition, instruction.transition.GetTypeCode()), instruction.transitionDuration, Convert.ChangeType(instruction.effect, instruction.effect.GetTypeCode()), instruction.effectRate, instruction.r, instruction.g, instruction.b, instruction.r2, instruction.g2, instruction.b2), "-");
+            Write(tx);
         }
 
         public void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -53,8 +54,24 @@ namespace TeamsStatusLight
         public void Write(string input) {
             if (_continue)
             {
-                _serialPort.WriteLine(input);
+                try {
+                    _serialPort.WriteLine(input);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine(ex.ToString());
+                    Reconnect();
+                }
             }
+        }
+
+        public void Reconnect() {
+            StopAllSerial();
+            StartSerial();
+        }
+
+        public bool getIndicatorState() {
+            return _continue && _serialPort.IsOpen;
         }
     }
 }
