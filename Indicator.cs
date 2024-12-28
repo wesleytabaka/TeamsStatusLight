@@ -10,14 +10,29 @@ namespace TeamsStatusLight
         public Indicator(string portName) { 
             _serialPort = new SerialPort();
             _serialPort.PortName = portName;
-            _serialPort.Open();
-            _continue = true;
-
-            Listen();
+            _serialPort.BaudRate = 9600;
+            _serialPort.DtrEnable = true;
+            _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            StartSerial();
         }
-        void IIndicator.SetIndicator(IIndicatorInstruction instruction)
-        {
-            Write(String.Join(",", instruction.transition, instruction.transitionDuration, instruction.effect, instruction.effectRate, instruction.r, instruction.g, instruction.b, instruction.r2, instruction.g2, instruction.b2, "-"));
+
+        public void StartSerial() {
+            try
+            {
+                _serialPort.Open();
+                _continue = true;
+            }
+            catch (Exception ex) {
+                _continue = false;
+                Console.Error.WriteLine(ex.ToString());
+            }
+        }
+
+        public void StopAllSerial() {
+            if (_serialPort.IsOpen) {
+                _serialPort.Close();
+            }
+            this._continue = false;
         }
 
         public void SetIndicator(IIndicatorInstruction instruction)
@@ -25,28 +40,21 @@ namespace TeamsStatusLight
             Write(String.Join(",", Convert.ChangeType(instruction.transition, instruction.transition.GetTypeCode()), instruction.transitionDuration, Convert.ChangeType(instruction.effect, instruction.effect.GetTypeCode()), instruction.effectRate, instruction.r, instruction.g, instruction.b, instruction.r2, instruction.g2, instruction.b2, "-"));
         }
 
-        void Listen()
+        public void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            Thread readThread = new Thread(Read);
-            readThread.Start();
+            string data = _serialPort.ReadExisting();
+            DataReceivedCallback(data);
         }
 
-        void Read()
-        {
-            while (_continue)
+        public void DataReceivedCallback(string message) {
+            Console.WriteLine("RX: " + message);
+        }
+
+        public void Write(string input) {
+            if (_continue)
             {
-                string input = _serialPort.ReadLine();
-                Console.WriteLine(input);
+                _serialPort.WriteLine(input);
             }
-        }
-
-        void Write(string input) {
-            _serialPort.WriteLine(input);
-        }
-
-        void IIndicator.Write(string input)
-        {
-            throw new NotImplementedException();
         }
     }
 }
