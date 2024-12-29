@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsStatusLight", "TeamsStatusLight.csproj", "{D3B6A53E-71C8-4AB1-9CAD-78B63B5C1306}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsStatusLight", "TeamsStatusLight.csproj", "{3A6303A2-2AF9-4233-A79B-A337F94B5C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsStatusLightWorkerService", "TeamsStatusLightWorkerService\TeamsStatusLightWorkerService.csproj", "{C4BB4B01-7B34-471E-86BB-FBD8D2067932}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D3B6A53E-71C8-4AB1-9CAD-78B63B5C1306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3B6A53E-71C8-4AB1-9CAD-78B63B5C1306}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3B6A53E-71C8-4AB1-9CAD-78B63B5C1306}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3B6A53E-71C8-4AB1-9CAD-78B63B5C1306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6303A2-2AF9-4233-A79B-A337F94B5C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6303A2-2AF9-4233-A79B-A337F94B5C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6303A2-2AF9-4233-A79B-A337F94B5C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6303A2-2AF9-4233-A79B-A337F94B5C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BB4B01-7B34-471E-86BB-FBD8D2067932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BB4B01-7B34-471E-86BB-FBD8D2067932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BB4B01-7B34-471E-86BB-FBD8D2067932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BB4B01-7B34-471E-86BB-FBD8D2067932}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
