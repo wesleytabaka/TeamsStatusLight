@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>exe</OutputType>
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <UserSecretsId>dotnet-TeamsStatusLightWorkerService-252383ac-e127-4404-b6d8-01169690802c</UserSecretsId>
     <StartupObject></StartupObject>
   </PropertyGroup>
