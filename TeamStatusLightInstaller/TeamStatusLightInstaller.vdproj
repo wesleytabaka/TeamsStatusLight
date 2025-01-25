@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_8E362772608C4630B64F46C712DA84FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C0E3CE6F5AF64B328ACD44EBEDF0B0FE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -96,6 +102,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_02E5969293D8496E8EA5D86813051156"
+            {
+            "Name" = "8:Publish Items from TeamsStatusLight (Release Any CPU)"
+            "Condition" = "8:False"
+            "Object" = "8:_8E362772608C4630B64F46C712DA84FF"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:2"
+            "Identifier" = "8:_892D4DA1_B398_49D7_9F15_62117AC053B5"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_2574309E2ACF4267BCF955B94821EA4B"
             {
             "Name" = "8:Publish Items from TeamsStatusLightWorkerService (Release Any CPU)"
@@ -107,6 +127,34 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_8EA12B5A_CCCE_4D92_A210_AD62A0208279"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B96DFE5F81A446B398561F53C61DB6B1"
+            {
+            "Name" = "8:Publish Items from TeamsStatusLightWorkerService (Release Any CPU)"
+            "Condition" = "8:"
+            "Object" = "8:_C0E3CE6F5AF64B328ACD44EBEDF0B0FE"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:/Uninstall"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_6AAB100C_3999_424B_9237_9BABB08161AB"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_DFAFD4CEEFF14A818300478EF49549A3"
+            {
+            "Name" = "8:Publish Items from TeamsStatusLight (Release Any CPU)"
+            "Condition" = "8:False"
+            "Object" = "8:_8E362772608C4630B64F46C712DA84FF"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:2"
+            "Identifier" = "8:_1CA934EC_96C7_45AD_B31D_6C7722BD7D90"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -198,9 +246,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:TeamStatusLightInstaller"
+        "ProductName" = "8:TeamStatusLight"
         "ProductCode" = "8:{7050008C-35D4-46B8-AF46-4F95C3D10C3D}"
-        "PackageCode" = "8:{B5ACE907-9F9B-4B22-BE5C-046089F4258B}"
+        "PackageCode" = "8:{ED96AD10-394F-412E-9B0D-5747B25ED253}"
         "UpgradeCode" = "8:{B5FE1DFD-7F71-4E04-8E8E-0F8163552F63}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -211,7 +259,7 @@
         "Manufacturer" = "8:wesleytabaka.com"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://wesleytabaka.com/project/teamsstatuslight"
-        "Title" = "8:Teams Status Light Installer"
+        "Title" = "8:Teams Status Light"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Wesley Tabaka"
         "Keywords" = "8:"
@@ -719,6 +767,34 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8E362772608C4630B64F46C712DA84FF"
+            {
+            "SourcePath" = "8:..\\TeamsStatusLight\\obj\\Release\\net8.0\\apphost.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A2256472F60A455D8D37F8CA35E5A0FF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{FFFFBEAA-0434-4BEB-B7B7-5BCC488EF17D}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C0E3CE6F5AF64B328ACD44EBEDF0B0FE"
             {
             "SourcePath" = "8:..\\TeamsStatusLightWorkerService\\bin\\Release\\net8.0\\win-x64\\publish\\TeamsStatusLightWorkerService.exe"
