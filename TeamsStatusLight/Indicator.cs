@@ -35,6 +35,14 @@ namespace TeamsStatusLight
             this._continue = false;
         }
 
+        public void EnterSuspendState() {
+            this.Write("SLEEP-");
+        }
+
+        public void EnterRunState() { 
+            this.Write("WAKE-");
+        }
+
         public void SetIndicator(IIndicatorInstruction instruction)
         {
             string tx = String.Join("", String.Join(",", Convert.ChangeType(instruction.transition, instruction.transition.GetTypeCode()), instruction.transitionDuration, Convert.ChangeType(instruction.effect, instruction.effect.GetTypeCode()), instruction.effectRate, instruction.r, instruction.g, instruction.b, instruction.r2, instruction.g2, instruction.b2), "-");
@@ -68,6 +76,7 @@ namespace TeamsStatusLight
         public void Reconnect() {
             StopAllSerial();
             StartSerial();
+            EnterRunState();
         }
 
         public bool getIndicatorState() {

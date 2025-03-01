@@ -104,5 +104,10 @@ namespace TeamsStatusLight
             autoEvent.Reset();
 
         }
+
+        public void EnterSuspendState()
+        {
+            _indicator.EnterSuspendState();
+        }
     }
 }

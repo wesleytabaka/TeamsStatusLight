@@ -9,6 +9,8 @@ namespace TeamsStatusLight
         void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e);
         void DataReceivedCallback(string response);
         void StopAllSerial();
+        void EnterSuspendState();
+        void EnterRunState();
         void StartSerial();
         void Reconnect();
         bool getIndicatorState();

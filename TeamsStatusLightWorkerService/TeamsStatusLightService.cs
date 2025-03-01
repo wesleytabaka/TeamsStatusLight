@@ -14,6 +14,10 @@ public sealed class TeamsStatusLightService
         TeamsStatusLightProgram.Run();
     }
 
+    public void EnterSuspendState() {
+        TeamsStatusLightProgram.EnterSuspendState();
+    }
+
     public void Stop() {
         // Stop the service
         // TODO
